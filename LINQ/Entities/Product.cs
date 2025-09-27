@@ -1,6 +1,6 @@
 ﻿namespace LINQ.Entities;
 
-internal class Product : IComparable<Product>
+internal class Product
 {
 	public string Name { get; set; }
 	public double Price { get; set; }
@@ -14,10 +14,5 @@ internal class Product : IComparable<Product>
 	public override string ToString()
 	{
 		return $"{Name}, {Price:F2}";
-	}
-
-	public int CompareTo(Product? other)
-	{
-		return Name.ToUpper().CompareTo(other.Name.ToUpper());
 	}
 }
