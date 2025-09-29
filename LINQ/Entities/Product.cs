@@ -1,18 +1,17 @@
 ﻿namespace LINQ.Entities;
 
-internal class Product
+internal class Product(int id, string name, double price, Category category)
 {
-	public string Name { get; set; }
-	public double Price { get; set; }
-
-	public Product(string name, double price)
-	{
-		Name = name;
-		Price = price;
-	}
+	public int Id { get; set; } = id;
+	public string? Name { get; set; } = name;
+	public double Price { get; set; } = price;
+	public Category Category { get; set; } = category;
 
 	public override string ToString()
 	{
-		return $"{Name}, {Price:F2}";
+		return $"ID: {Id}\n" +
+			$"Name: {Name}\n" +
+			$"Price: {Price:F2}\n" +
+			$"Category: {Category.Name}, {Category.Tier}\n";
 	}
 }
