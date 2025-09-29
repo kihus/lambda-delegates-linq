@@ -1,14 +1,19 @@
-﻿using LINQ.Entities;
+﻿using LINQ.Services;
+namespace LINQ;
 
-List<Product> list = new();
-list.Add(new Product("TV", 900.00));
-list.Add(new Product("Notebook", 1200.00));
-list.Add(new Product("Tablet", 450.00));
-list.Add(new Product("Computador", 5550.00));
-
-list.Sort((p1, p2) => p1.Name.ToUpper().CompareTo(p2.Name.ToUpper()));
-
-foreach(var item in list)
+delegate double BinaryNumericOperation(double n1, double n2);
+class Program
 {
-	Console.WriteLine(item);
+    static void Main(string[] args)
+    {
+        double a = 10;
+        double b = 12;
+
+        BinaryNumericOperation op = CalculationService.Sum;
+
+        double result = op(a, b);
+        Console.WriteLine(result);
+    }
 }
+
+
