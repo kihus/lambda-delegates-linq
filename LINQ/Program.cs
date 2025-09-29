@@ -17,7 +17,9 @@ class Program
         ShowList(prod);
         Console.WriteLine();
 
-        prod.ForEach(Increase);
+        Action<Product> act = Increase;
+
+        prod.ForEach(act);
 
         Console.WriteLine("Update List!");
         ShowList(prod);
