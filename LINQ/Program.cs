@@ -19,18 +19,13 @@ class Program
         ShowList(prod);
         Console.WriteLine();
 
-        Func<Product, string> func = NameUpper;
+        Func<Product, string> func = p => p.Name.ToUpper();
 
         List<string> result = prod.Select(func).ToList();
 
         Console.WriteLine("Update List!");
         ShowList(prod);
 
-    }
-
-    static string NameUpper(Product p)
-    {
-        return p.Name.ToUpper();
     }
 
     static void ShowList(List<Product> p)
