@@ -19,8 +19,9 @@ class Program
         ShowList(prod);
         Console.WriteLine();
 
+        Func<Product, string> func = NameUpper;
 
-        List<string> result = prod.Select(NameUpper).ToList();
+        List<string> result = prod.Select(func).ToList();
 
         Console.WriteLine("Update List!");
         ShowList(prod);
