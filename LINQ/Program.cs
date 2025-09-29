@@ -17,7 +17,7 @@ class Program
         ShowList(prod);
         Console.WriteLine();
 
-        Action<Product> act = Increase;
+        Action<Product> act = p => { p.Price += p.Price * 0.1; };
 
         prod.ForEach(act);
 
