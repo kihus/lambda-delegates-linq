@@ -1,6 +1,4 @@
-﻿using LINQ.Entities;
-using LINQ.Services;
-using System.Linq;
+﻿using System.Linq;
 
 namespace LINQ;
 
@@ -8,30 +6,23 @@ class Program
 {
     static void Main(string[] args)
     {
-        List<Product> prod = new();
+        // specify the data source
+        int[] num = [2, 3, 4, 5];
 
-        prod.Add(new Product("TV", 900.00));
-        prod.Add(new Product("Carro", 100.00));
-        prod.Add(new Product("Arroz", 40.00));
-        prod.Add(new Product("Tablet", 350.00));
-        prod.Add(new Product("HD Case", 90.00));
-        Console.WriteLine("Normal List!");
-        ShowList(prod);
-        Console.WriteLine();
+        // define the query expression
+        var result = num
+            .Where(x => x % 2 == 0)
+            .Select(x => x * 10);
 
-        List<string> result = prod.Select(p => p.Name.ToUpper()).ToList();
-
-        Console.WriteLine("Update List!");
-        ShowList(prod);
-
-    }
-
-    static void ShowList(List<Product> p)
-    {
-        foreach (var item in p)
+        // execute the query
+        foreach(var x in result)
         {
-            Console.WriteLine(item);
+            Console.WriteLine(x);
         }
+
+        // output:
+        // 20
+        // 40
     }
 }
 
