@@ -102,7 +102,7 @@ class Program
             .Where(p => p.Category.Id == 9)
             .Select(p => p.Price)
             .Aggregate(0.0, (x, y) => x + y); // valor inicial: 0.0, caso vazio o resultado vai ser 0.0
-        Console.WriteLine($"Category 1 security aggregate sum: {r16:F2}");
+        Console.WriteLine($"Category (not-existent) security aggregate sum: {r16:F2}");
         Console.WriteLine();
 
         var r17 = products.GroupBy(p => p.Category);
