@@ -1,5 +1,7 @@
 ﻿using LINQ.Entities;
 using LINQ.Services;
+using System.Linq;
+
 namespace LINQ;
 
 class Program
@@ -17,16 +19,17 @@ class Program
         ShowList(prod);
         Console.WriteLine();
 
-        prod.ForEach(p => { p.Price += p.Price * 0.1; });
+
+        List<string> result = prod.Select(NameUpper).ToList();
 
         Console.WriteLine("Update List!");
         ShowList(prod);
 
     }
 
-    static void Increase(Product prod)
+    static string NameUpper(Product p)
     {
-        prod.Price += prod.Price * 0.10;
+        return p.Name.ToUpper();
     }
 
     static void ShowList(List<Product> p)
