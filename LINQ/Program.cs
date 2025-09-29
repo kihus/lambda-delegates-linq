@@ -13,27 +13,27 @@ class Program
         prod.Add(new Product("Arroz", 40.00));
         prod.Add(new Product("Tablet", 350.00));
         prod.Add(new Product("HD Case", 90.00));
-		Console.WriteLine("Normal List!");
+        Console.WriteLine("Normal List!");
         ShowList(prod);
-		Console.WriteLine();
+        Console.WriteLine();
 
-        prod.RemoveAll(ProductTest);
+        prod.ForEach(Increase);
 
-		Console.WriteLine("Update List!");
+        Console.WriteLine("Update List!");
         ShowList(prod);
 
     }
 
-    public static bool ProductTest(Product p)
+    static void Increase(Product prod)
     {
-        return p.Price >= 100;
+        prod.Price += prod.Price * 0.10;
     }
 
     static void ShowList(List<Product> p)
     {
         foreach (var item in p)
         {
-			Console.WriteLine(item);
+            Console.WriteLine(item);
         }
     }
 }
